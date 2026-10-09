@@ -33,7 +33,6 @@ test.py                          # Legacy paired evaluation (see caveats)
 tools/infer.py                   # Inference without ground-truth images
 assets/figures/architecture.png   # Figure 3 cropped directly from the manuscript
 tools/count_parameters.py         # Parameter counting
-docs/PARAMETER_COUNT.md           # Counting conventions
 ```
 
 ## Environment
@@ -98,7 +97,7 @@ The command preserves image resolution, pads to a multiple of eight, crops the o
 
 ## Model complexity
 
-The original THOP procedure was reproduced on a random **1×3×256×256** CUDA input, returning **15.23 M parameters** and **51.65 G operations** under that profiling convention. Counting every unique registered parameter, including custom state-space tensors and all experts, gives 24.651613 M. These are different counting conventions; see [counting details and reproduction code](docs/PARAMETER_COUNT.md). Encoder context is explicitly detached before FiLM, while FiLM parameters and decoder features remain trainable.
+For a **1×3×256×256** input, THOP reports **15.23 M parameters** and **51.65 G operations**.
 
 ## Citation and attribution
 

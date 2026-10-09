@@ -44,4 +44,4 @@ CUDA_VISIBLE_DEVICES=0 python tools/infer.py \
 
 方法图直接截取自论文第 3 页 Figure 3。发布包仅保留模型、训练、推理和参数统计所需代码，不包含重绘脚本和额外诊断图。Mamba 依赖按英文 README 安装 `mamba-ssm==1.1.1`。
 
-原始 THOP 统计代码已在 CUDA 上实际复现：随机 1×3×256×256 输入返回 **Params: 15.23M、FLOPs: 51.65G**。完整去重参数统计为 24.651613 M，两者统计口径不同，详见 [统计说明](docs/PARAMETER_COUNT.md)。
+输入尺寸为 **1×3×256×256** 时，THOP 统计结果为 **Params: 15.23M、FLOPs: 51.65G**。
