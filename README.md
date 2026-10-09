@@ -12,7 +12,7 @@ Yan Luo, Laibin Chang, Zefan Feng, Yi'ang Chen, Kui Jiang, Zhengguo Li
 
 IsoMamba groups visual tokens using a model-derived update representation and processes each group with a separate recurrent expert. Encoder terminal states coordinate decoder experts through FiLM modulation. The implementation uses a U-shaped network with additive feature skips and an image residual.
 
-![IsoMamba architecture](assets/figures/architecture.png)
+
 
 Research code for IsoMamba. The arXiv paper announcement, public checkpoint downloads, license choice, and remaining implementation notes are tracked below. Repository: [kkoucy/IsoMamba](https://github.com/kkoucy/IsoMamba).
 
