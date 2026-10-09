@@ -8,7 +8,7 @@ Yan Luo, Laibin Chang, Zefan Feng, Yi'ang Chen, Kui Jiang, Zhengguo Li
 
 **arXiv:** The manuscript has been submitted and is awaiting moderation. The paper link and identifier will be added after announcement.
 
-[中文说明](README_zh-CN.md) · [Code audit](docs/CODE_AUDIT.md) · [Figure captions](docs/FIGURES.md)
+[中文说明](README_zh-CN.md)
 
 IsoMamba groups visual tokens using a model-derived update representation and processes each group with a separate recurrent expert. Encoder terminal states coordinate decoder experts through FiLM modulation. The implementation uses a U-shaped network with additive feature skips and an image residual.
 
@@ -31,12 +31,9 @@ options/train_IsoMamba.yml        # Portable configuration
 train.py                         # Training entry point
 test.py                          # Legacy paired evaluation (see caveats)
 tools/infer.py                   # Inference without ground-truth images
-tools/build_paper_figures.py      # Reproducible vector/raster figures
-tools/prepare_release.py          # Non-destructive allowlist export
-analysis/                        # Research diagnostics and their unit tests
-assets/figures/                   # PNG, SVG and PDF figures
-assets/data/                     # Portable aggregate diagnostic data
-docs/                            # Audit, figure captions, release notes
+assets/figures/architecture.png   # Figure 3 cropped directly from the manuscript
+tools/count_parameters.py         # Parameter counting
+docs/PARAMETER_COUNT.md           # Counting conventions
 ```
 
 ## Environment
@@ -44,14 +41,28 @@ docs/                            # Audit, figure captions, release notes
 The inspected local environment uses Linux, Python 3.10, PyTorch 2.1.2 + CUDA 11.8, torchvision 0.16.2, mamba-ssm 1.1.1, and causal-conv1d 1.1.1. Model imports, strict checkpoint loading and a CUDA forward under THOP were checked in this environment; a fresh installation and checkpoint-based image evaluation still need validation. The fused selective scan requires CUDA.
 
 ```bash
+git clone https://github.com/kkoucy/IsoMamba.git
+cd IsoMamba
+
 conda create -n isomamba python=3.10 -y
 conda activate isomamba
 pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
-pip install causal-conv1d==1.1.1 mamba-ssm==1.1.1 --no-build-isolation
+pip install packaging ninja wheel setuptools
+pip install causal-conv1d==1.1.1 --no-build-isolation
+pip install mamba-ssm==1.1.1 --no-build-isolation
 ```
 
-CUDA extension wheels must match Python, PyTorch, CUDA and the C++ ABI; building from source requires a compatible CUDA toolkit and compiler. The local `mamba/` tree identifies itself as 2.2.5 and is not the installed 1.1.1 dependency; it is excluded from the release export.
+CUDA extension wheels must match Python, PyTorch, CUDA and the C++ ABI; building from source requires a compatible CUDA toolkit and compiler. Install Mamba from the package commands above; no local Mamba source tree or wheel upload is needed. The pinned releases are [mamba-ssm 1.1.1](https://pypi.org/project/mamba-ssm/1.1.1/) and [causal-conv1d 1.1.1](https://pypi.org/project/causal-conv1d/1.1.1/). If a matching prebuilt wheel is unavailable, install a CUDA 11.8 toolkit with `nvcc` and set `CUDA_HOME` to its installation directory before retrying.
+
+Check the installation:
+
+```bash
+python -m pip check
+python -c "import torch, mamba_ssm, causal_conv1d; from mamba_ssm.ops.selective_scan_interface import selective_scan_fn; from basicsr.models.archs.isomamba_arch import IsoMamba; print('CUDA:', torch.cuda.is_available()); print('IsoMamba and CUDA extensions imported successfully')"
+```
+
+CUDA must report `True` for training and inference.
 
 ## Data and training
 
@@ -85,43 +96,9 @@ The command preserves image resolution, pads to a multiple of eight, crops the o
 
 `test.py` is retained for historical paired evaluations. It requires targets, only scans lowercase PNG/JPG, uses SSIM `data_range=1.1`, and must not be treated as the final benchmark protocol without review. Training validation uses a separate metric implementation.
 
-## Paper figures and diagnostics
-
-![Fixed-expert state diagnostic](assets/figures/hidden_state_separation.png)
-
-Figures are supplied as editable SVG, vector PDF, and 300 dpi PNG. Rebuild without a GPU:
-
-```bash
-python tools/build_paper_figures.py
-python tools/count_parameters.py
-python -m unittest analysis.test_state_contention analysis.test_global_state_detach
-python analysis/analyze_state_contention.py --self-test
-python analysis/analyze_hidden_state_quality.py --self-test
-python analysis/analyze_raw_hidden_state_separation.py --self-test
-```
-
-The diagnostic plot uses existing UIEB (90) and LSUI (399) aggregate results from a single trained checkpoint. Error bars are image-level standard deviations. The fixed-expert comparison changes recurrence organization while holding tokenwise operands fixed; full isolation also changes experts and is shown only as a descriptive reference. This is a post-hoc diagnostic, not a comparison with an independently trained shared-state baseline. See [captions and provenance](docs/FIGURES.md).
-
-The diagnostic scripts retain historical dataset defaults. Override them explicitly when running elsewhere. The quality and raw-state separation scripts accept paired `--uieb-input-dir`/`--uieb-gt-dir` and `--lsui-input-dir`/`--lsui-gt-dir` arguments, and require exactly one visible CUDA GPU of your choice:
-
-```bash
-CUDA_VISIBLE_DEVICES=0 python analysis/analyze_raw_hidden_state_separation.py \
-  --checkpoint checkpoints/isomamba.pth --dataset uieb \
-  --uieb-input-dir datasets/UIEB/test/Input256 \
-  --uieb-gt-dir datasets/UIEB/test/GT256
-```
-
-The state-contention script accepts `--input-dir` and `--gt-dir`. All analyses default to the portable network configuration and accept `--config` explicitly.
+## Model complexity
 
 The original THOP procedure was reproduced on a random **1×3×256×256** CUDA input, returning **15.23 M parameters** and **51.65 G operations** under that profiling convention. Counting every unique registered parameter, including custom state-space tensors and all experts, gives 24.651613 M. These are different counting conventions; see [counting details and reproduction code](docs/PARAMETER_COUNT.md). Encoder context is explicitly detached before FiLM, while FiLM parameters and decoder features remain trainable.
-
-## Preparing a source release
-
-```bash
-python tools/prepare_release.py --output /tmp/IsoMamba-release
-```
-
-The exporter copies an explicit source allowlist into a new directory and writes SHA-256 hashes. It never deletes or alters source files and refuses an existing destination. Training artifacts, local data, binary wheels, the anonymous manuscript, vendored Mamba, and the original local configuration are excluded. This is a preparation command; it does not initialize Git or publish to GitHub. Review [release tasks](docs/RELEASE.md) before publication.
 
 ## Citation and attribution
 
