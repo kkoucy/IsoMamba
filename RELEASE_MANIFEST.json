@@ -1,0 +1,381 @@
+{
+  "status": "release-preparation; license and scientific review pending",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 457,
+      "sha256": "adf3788cbcc155c444dcee0eedf72a288c2cdfdee20c5c04027018117c39fd41"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8489,
+      "sha256": "5aa257f4cbe5aca0159a4c56eeba08c03a7f51a3a50ea57191007fb316f5c2d1"
+    },
+    {
+      "path": "README_zh-CN.md",
+      "bytes": 2764,
+      "sha256": "f8045e75128a7c2ebb093064d825c424481a8245a5cfe4ef5d917b0b7496aca1"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1343,
+      "sha256": "fe22927c744bdd59b1d26d9c460ffaa2945dbe60703a9ef6883f3c3e71a4b72e"
+    },
+    {
+      "path": "analysis/analyze_hidden_state_quality.py",
+      "bytes": 89835,
+      "sha256": "3535c611da2b4c0c2cc4f0c4e40a51091b58ad560d0e6887b798e6b1bfbb45da"
+    },
+    {
+      "path": "analysis/analyze_raw_hidden_state_separation.py",
+      "bytes": 58608,
+      "sha256": "b6c1187cc27e8c152791c0adf64ae0d0972e5446be3ec1db1904cab53c8f8897"
+    },
+    {
+      "path": "analysis/analyze_state_contention.py",
+      "bytes": 49601,
+      "sha256": "0ed917a8dbe74f33632a43f1597edc072c06d2c149ed4c2c592664b6bc500de4"
+    },
+    {
+      "path": "analysis/runtime_options.py",
+      "bytes": 1073,
+      "sha256": "53f1b821ebef7bf143f78f3ed80a92827fe52be15a14e762f2e84e2cbd0e212c"
+    },
+    {
+      "path": "analysis/test_global_state_detach.py",
+      "bytes": 1366,
+      "sha256": "6c60dacdfc06996fd8f69a7c93186b13ac0b3948ba0f2d08c5a4d3a21bda4802"
+    },
+    {
+      "path": "analysis/test_state_contention.py",
+      "bytes": 4653,
+      "sha256": "7968174263919fa6f71e4e5b73ba6fdb426bba7b1347a653578d5d126fd982d5"
+    },
+    {
+      "path": "assets/data/hidden_state_separation.json",
+      "bytes": 2311,
+      "sha256": "1c137608ff5e9162b771eb4bdc4830f57029e3ea9a1b19979e640680e71fe0a7"
+    },
+    {
+      "path": "assets/figures/architecture.pdf",
+      "bytes": 24970,
+      "sha256": "3117e0156a4f337c65b065bd34d40a076cfa26aab8fe3877952c0a586b5ed910"
+    },
+    {
+      "path": "assets/figures/architecture.png",
+      "bytes": 447551,
+      "sha256": "59de8a3eeaf7c337935a62930c3f22cf2216251af0285fd833acdb8fcf22940c"
+    },
+    {
+      "path": "assets/figures/architecture.svg",
+      "bytes": 18390,
+      "sha256": "9ca9069adde35a4ead75a11f527254b051f6e71e710213d57d74b4809fb2bbe7"
+    },
+    {
+      "path": "assets/figures/cluster_route_isolate.pdf",
+      "bytes": 22598,
+      "sha256": "1df0eb97749121e9994d1fce94ddd9bd4709582b46ebb86440cc995f50a62340"
+    },
+    {
+      "path": "assets/figures/cluster_route_isolate.png",
+      "bytes": 450751,
+      "sha256": "5ac6465fd6234c3b43877de7073e12ac18c5e1c6e3aef68f05b27525080d9556"
+    },
+    {
+      "path": "assets/figures/cluster_route_isolate.svg",
+      "bytes": 20772,
+      "sha256": "a1fcabaceb47c4109ac2dc82849d79ce5ece6884391b0f11e7305512dac1c452"
+    },
+    {
+      "path": "assets/figures/hidden_state_separation.pdf",
+      "bytes": 22543,
+      "sha256": "79e6b3b67a8f64f1de8135636b5c47945b12bc133fb97753a457a2990063dbf7"
+    },
+    {
+      "path": "assets/figures/hidden_state_separation.png",
+      "bytes": 153341,
+      "sha256": "c573ee5acf7cd2ab8f2990170f62d308c50c83a4d9a492b1c749ddbd3913c697"
+    },
+    {
+      "path": "assets/figures/hidden_state_separation.svg",
+      "bytes": 14453,
+      "sha256": "fadadb29459e0c8cb837c8287531cd4d9fd28fcded280a2ccc7ba7e3135382e8"
+    },
+    {
+      "path": "basicsr/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "basicsr/data/__init__.py",
+      "bytes": 4631,
+      "sha256": "7828023923735f95d8d5f318e7b08a9f6ea22f6936c578eb6cc59a6351a6307d"
+    },
+    {
+      "path": "basicsr/data/data_sampler.py",
+      "bytes": 1652,
+      "sha256": "3e02c25f3bb509a4573e9e5265678bf1570cdb954cbbe0bb5820496e6070fdfd"
+    },
+    {
+      "path": "basicsr/data/data_util.py",
+      "bytes": 14556,
+      "sha256": "9994b217f259ab9be45610bfa3b71151bbecab77f4db9f4c76fca2d434e54667"
+    },
+    {
+      "path": "basicsr/data/paired_enhanced_dataset.py",
+      "bytes": 4648,
+      "sha256": "1f17fecb207e06c5ebe43b9bd1691cd20e7743be42237dc3cd057252dca1fcc3"
+    },
+    {
+      "path": "basicsr/data/paired_image_dataset.py",
+      "bytes": 29539,
+      "sha256": "e7e92e7cc2993fefd7e1d29c4a91b9ab17f066bccb8fe11df28940f7b46d735d"
+    },
+    {
+      "path": "basicsr/data/prefetch_dataloader.py",
+      "bytes": 3156,
+      "sha256": "6b1d1b23b343a4c62c48cee9b2331d25610ddb2f6a16e3487bf1c79ba0722132"
+    },
+    {
+      "path": "basicsr/data/single_image_dataset.py",
+      "bytes": 2554,
+      "sha256": "75a0993843a06a3f43751aeb13f750998ba880753900ae0bfe8670937f7497d9"
+    },
+    {
+      "path": "basicsr/data/transforms.py",
+      "bytes": 8944,
+      "sha256": "d45eeb334c13339bfcbee4bc065d77b81b0123c602df203134c8ec8dc117058c"
+    },
+    {
+      "path": "basicsr/metrics/__init__.py",
+      "bytes": 153,
+      "sha256": "19b309387800e068cf223135e5589982e919b85048221a2beb59d8bfc62bc950"
+    },
+    {
+      "path": "basicsr/metrics/metric_util.py",
+      "bytes": 1313,
+      "sha256": "9b9a585e55d8148926325ef7b136819adeff18bc6031e37af0c44620c6a9f953"
+    },
+    {
+      "path": "basicsr/metrics/metrics.py",
+      "bytes": 9031,
+      "sha256": "f489a9488a75ffbaeb39d6cdd63498ef6127c746892cb5a635dca988f0e95e5b"
+    },
+    {
+      "path": "basicsr/metrics/niqe.py",
+      "bytes": 8325,
+      "sha256": "2f4a964c23c76bd54942894ac7066ce0caa6466974e507b3946405ddced9d94d"
+    },
+    {
+      "path": "basicsr/metrics/niqe_pris_params.npz",
+      "bytes": 11850,
+      "sha256": "2a7c182a68c9e7f1b2e2e5ec723279d6f65d912b6fcaf37eb2bf03d7367c4296"
+    },
+    {
+      "path": "basicsr/metrics/psnr_ssim.py",
+      "bytes": 10377,
+      "sha256": "08b718c908adb4e4bfeb2dd4d00765ae1e026398558c867d27e8ded32a07d6df"
+    },
+    {
+      "path": "basicsr/models/__init__.py",
+      "bytes": 1145,
+      "sha256": "bce5fd36d2032bf369212ce1f12a433550547dd1bcf681238ca14d6beeaa6b33"
+    },
+    {
+      "path": "basicsr/models/archs/__init__.py",
+      "bytes": 1232,
+      "sha256": "512da3ef274822c0527074b288232f27e4c32e9fff6194e484c413b8ee9e598a"
+    },
+    {
+      "path": "basicsr/models/archs/arch_util.py",
+      "bytes": 8824,
+      "sha256": "44673cec183dc2596141854d82a8b4fc321dc2090b77e064c882edb83ac40d9d"
+    },
+    {
+      "path": "basicsr/models/archs/clusterM_arch.py",
+      "bytes": 41533,
+      "sha256": "9e1ad5ca6c889d9f8a29f95c248d9a7172fb21b9bd496ecf2c5f3cfcb6bafd17"
+    },
+    {
+      "path": "basicsr/models/archs/funcs.py",
+      "bytes": 14842,
+      "sha256": "33742fefcd97726b9a38197f0548491bd35a6d9cb35b69f1473842332b25606e"
+    },
+    {
+      "path": "basicsr/models/archs/isomamba_arch.py",
+      "bytes": 149,
+      "sha256": "a76cb12be1da41ded19e84ff70b9f0d651b98c5e2cc9ce2e6b90b4555155328a"
+    },
+    {
+      "path": "basicsr/models/base_model.py",
+      "bytes": 14763,
+      "sha256": "363f8de03d30f229231d4dd966b31d1f0bdcaaa8274b36162dcb5321c4f204b1"
+    },
+    {
+      "path": "basicsr/models/image_restoration_model.py",
+      "bytes": 21269,
+      "sha256": "56b70654971b20c54e0a506ae55b4fdb93cbd603dfd2a7749fcd690989c5ae96"
+    },
+    {
+      "path": "basicsr/models/losses/__init__.py",
+      "bytes": 197,
+      "sha256": "1e8a1edbc4bca8595d6698122f9433a922e55033bbdbf60afb58b3a8df41c853"
+    },
+    {
+      "path": "basicsr/models/losses/loss_util.py",
+      "bytes": 2903,
+      "sha256": "82f853d6ea416606e7a1871143cda4dc72cf47640eebeca2e96118748d290b59"
+    },
+    {
+      "path": "basicsr/models/losses/losses.py",
+      "bytes": 15863,
+      "sha256": "b4875cbab1e478c7703ca74808d059e48dd1ba1c3fdc33fb56c01eb1c052d676"
+    },
+    {
+      "path": "basicsr/models/lr_scheduler.py",
+      "bytes": 8238,
+      "sha256": "7b1ec76ffd9b220b666252d5f409f9b4ac92ef22b386ed1b243a00661d73d65a"
+    },
+    {
+      "path": "basicsr/utils/__init__.py",
+      "bytes": 1107,
+      "sha256": "e6eb3fd26f5825ba22fef93714ca570ca0dc12529656358020f128020caefe42"
+    },
+    {
+      "path": "basicsr/utils/bundle_submissions.py",
+      "bytes": 3589,
+      "sha256": "8eb518aac28150bc7a0a27e1c02d25f61ccaaeb6aeb697997ab143190f6723cb"
+    },
+    {
+      "path": "basicsr/utils/create_lmdb.py",
+      "bytes": 4992,
+      "sha256": "a980efc3f6fb590bd8e0d028093b02c59bd7c3b6a56daa5d3d5f25da3713e4c7"
+    },
+    {
+      "path": "basicsr/utils/dist_util.py",
+      "bytes": 2617,
+      "sha256": "8be49ebc8c1d049826fcace2c6d2ff699c54beb3be9ee91eaae42e22d34e3dd5"
+    },
+    {
+      "path": "basicsr/utils/download_util.py",
+      "bytes": 2124,
+      "sha256": "35c8539e9d2d77a770fd16bd55ce253dbd87e00b50370172a6597b204fb6312d"
+    },
+    {
+      "path": "basicsr/utils/face_util.py",
+      "bytes": 9590,
+      "sha256": "767fa07d7e06e7729985f7141c9f3376374625c918c49fc96d5c7c8e4f38685b"
+    },
+    {
+      "path": "basicsr/utils/file_client.py",
+      "bytes": 6364,
+      "sha256": "42ea6039e7740231244c36a1c004349a3dbb87fe144f4d9228324c7ef2ab702b"
+    },
+    {
+      "path": "basicsr/utils/flow_util.py",
+      "bytes": 6335,
+      "sha256": "a4911461f9c11287efa7d73f8b367b97e1fe3fa70b7286e7864883f608bd67c1"
+    },
+    {
+      "path": "basicsr/utils/img_util.py",
+      "bytes": 7478,
+      "sha256": "3923ce0be0afa89a51346d61e1279a7b62aaac4c78636f4d0b6dc120cb550eab"
+    },
+    {
+      "path": "basicsr/utils/lmdb_util.py",
+      "bytes": 7286,
+      "sha256": "2ecb2d7dbb8b4b697e21f0acc5100e966ce52f57bc9eb05d14e23c8b721ec866"
+    },
+    {
+      "path": "basicsr/utils/logger.py",
+      "bytes": 6264,
+      "sha256": "dbb4f301be394c314df6a2b5f3052dc1bf92c8a9d1b47deba955aebe3d1edbf9"
+    },
+    {
+      "path": "basicsr/utils/matlab_functions.py",
+      "bytes": 13747,
+      "sha256": "0095b6cb513f4a0eab72157fd0c8a1d775d070414e91d4b6d8c7fde9e39e650e"
+    },
+    {
+      "path": "basicsr/utils/misc.py",
+      "bytes": 6037,
+      "sha256": "b30b97c02419e674f73ab10bcb875af543e4c38f3fa37729a724cd3636c636a2"
+    },
+    {
+      "path": "basicsr/utils/options.py",
+      "bytes": 3669,
+      "sha256": "8b1eb0375f895f9e4421ad58929d8722aab96a74101619bb35dac6c23f0397cb"
+    },
+    {
+      "path": "basicsr/version.py",
+      "bytes": 137,
+      "sha256": "3b9f6c70869c2624817e770fe940e1a7e1d0174db263094a98ca0f9acf4b4b27"
+    },
+    {
+      "path": "docs/CODE_AUDIT.md",
+      "bytes": 5356,
+      "sha256": "b20823aef05ee99f94173e46f47fb2d6d28bca72943986d65cb30720257f5d4a"
+    },
+    {
+      "path": "docs/FIGURES.md",
+      "bytes": 3971,
+      "sha256": "6535481e872d2256cbd17ab6541b9184ac7cd73331e0a9ccc917e6138a296578"
+    },
+    {
+      "path": "docs/PARAMETER_COUNT.md",
+      "bytes": 3031,
+      "sha256": "3ad8f886fb41edacaa2b53062dd2421d367519e45708d7792322c6aaf113e4d9"
+    },
+    {
+      "path": "docs/RELEASE.md",
+      "bytes": 2368,
+      "sha256": "d9799aae2b100337bae376c404b63670dfdf8fce8b95986a975648ae122e2c2d"
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "bytes": 3054,
+      "sha256": "17f28a6b6c1587ae0426951e4a0ce82494e39544b0abcac255bbe22c7c1ca1f4"
+    },
+    {
+      "path": "options/train_IsoMamba.yml",
+      "bytes": 2200,
+      "sha256": "0c0a0a5fcd262940c969dbd7256c0d99501f1308a6c8077c8a57b7a20af5eaad"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 420,
+      "sha256": "c65410c58e770abcbe8bc099b86eca992001c18f9672981c47df045064a0fd26"
+    },
+    {
+      "path": "test.py",
+      "bytes": 5513,
+      "sha256": "0c3cae51e43dd51bb8f537fa74d23cd284289de48bba9543628266a555155a0c"
+    },
+    {
+      "path": "tools/build_paper_figures.py",
+      "bytes": 10435,
+      "sha256": "23eea85502593e2532be535195b47697898310e2e8119c926867b12809a2b397"
+    },
+    {
+      "path": "tools/count_parameters.py",
+      "bytes": 1512,
+      "sha256": "dde52232d02e1d3c6b79b940be5db14062caca86ecbf787d01485dbe193df7c8"
+    },
+    {
+      "path": "tools/infer.py",
+      "bytes": 4089,
+      "sha256": "16081376a6e19f6b7f0715fd700d96cf3c39dd02d7ccbd9fc60ee551f0aaa07a"
+    },
+    {
+      "path": "tools/prepare_release.py",
+      "bytes": 3805,
+      "sha256": "75cc6acc04a368aa3fee8110ba7886a5fc9a6f8e90794582e68e551d566f8ab0"
+    },
+    {
+      "path": "train.py",
+      "bytes": 13738,
+      "sha256": "6ac100b680198362f35b5f8a28492ea6a9ab14cd5c7d3b0ea367d2559c3c6b2b"
+    }
+  ],
+  "total_bytes": 1778384
+}

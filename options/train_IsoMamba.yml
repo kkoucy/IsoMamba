@@ -1,0 +1,89 @@
+# Portable copy of the current recipe; this is not a verified paper reproduction.
+name: IsoMamba
+model_type: ImageCleanModel
+scale: 1
+num_gpu: 1
+manual_seed: 100
+datasets:
+  train:
+    name: UIEB_LSUI_train
+    type: Dataset_PairedImage
+    dataroot_lq: datasets/UIEB_LSUI/train/Input
+    dataroot_gt: datasets/UIEB_LSUI/train/GT
+    geometric_augs: true
+    filename_tmpl: '{}'
+    io_backend: {type: disk}
+    use_shuffle: true
+    num_worker_per_gpu: 1
+    batch_size_per_gpu: 2
+    mini_batch_sizes: [2]
+    iters: [300000]
+    gt_size: 256
+    gt_sizes: [256]
+    dataset_enlarge_ratio: 10
+    prefetch_mode: null
+  val:
+    name: UIEB_test
+    type: Dataset_PairedImage
+    dataroot_lq: datasets/UIEB/test/Input
+    dataroot_gt: datasets/UIEB/test/GT
+    io_backend: {type: disk}
+network_g:
+  # Legacy registry name also accepted by the diagnostic scripts.
+  type: ClusterMamba
+  inp_channels: 3
+  out_channels: 3
+  dim: 32
+  num_blocks: [4, 6, 6, 8]
+  mlp_ratio: 2
+  num_refinement_blocks: 4
+  drop_path_rate: 0.
+  num_clusters: [2, 3, 4]
+  isTest: false
+path:
+  pretrain_network_g: null
+  strict_load_g: true
+  resume_state: null
+train:
+  total_iter: 300000
+  warmup_iter: -1
+  use_grad_clip: true
+  scheduler:
+    type: CosineAnnealingRestartCyclicLR
+    periods: [92000, 208000]
+    restart_weights: [1, 1]
+    eta_mins: [0.0003, 0.000001]
+  mixing_augs: {mixup: false, mixup_beta: 1.2, use_identity: true}
+  optim_g:
+    type: AdamW
+    lr: !!float 3e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.999]
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 8
+    reduction: mean
+    use_channel_weight: true
+    alpha: 0.3
+  global_opt:
+    type: SSIMLoss
+    loss_weight: 1
+    use_channel_weight: true
+    alpha: 0.3
+  edge_opt: {type: EdgeLoss, loss_weight: 4}
+val:
+  window_size: 8
+  val_freq: 1000
+  save_img: false
+  rgb2bgr: true
+  use_image: true
+  max_minibatch: 4
+  metrics:
+    psnr: {type: calculate_psnr, crop_border: 0, test_y_channel: false}
+    ssim: {type: calculate_ssim, crop_border: 0, test_y_channel: false}
+logger:
+  print_freq: 100
+  save_checkpoint_freq: 1000
+  use_tb_logger: true
+  wandb: {project: null, resume_id: null}
+dist_params: {backend: nccl, port: 29500}

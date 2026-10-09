@@ -1,0 +1,22 @@
+# Install PyTorch/CUDA first; see README.md. Recorded from the local environment.
+numpy==1.26.4
+torch==2.1.2
+torchvision==0.16.2
+timm==1.0.27
+einops==0.8.2
+scikit-learn==1.7.0
+matplotlib==3.10.9
+opencv-python==4.7.0.72
+pytorch-msssim==1.0.0
+PyYAML
+scipy
+scikit-image
+Pillow
+tqdm
+thop
+tensorboard
+lmdb
+requests
+natsort
+# CUDA extensions are installed separately after PyTorch:
+# causal-conv1d==1.1.1 and mamba-ssm==1.1.1

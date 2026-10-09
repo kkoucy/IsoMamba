@@ -1,0 +1,28 @@
+# Local training data and artifacts (kept on disk).
+/experiments/
+/results/
+/analysis_outputs/
+/tb_logger/
+/datasets/
+/checkpoints/
+/release_dist/
+*.log
+*.pth
+*.pt
+*.state
+*.whl
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.env
+.env.*
+.aws/
+.agents/
+.codex/
+# Local anonymous manuscript; public figures live under assets/figures/.
+/AAAI2027_clusterUIE_ly*.pdf
+# Unused vendored Mamba tree; install the recorded dependency instead.
+/mamba/
