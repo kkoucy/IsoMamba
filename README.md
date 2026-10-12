@@ -4,9 +4,9 @@
 
 Yan Luo, Laibin Chang, Zefan Feng, Yi'ang Chen, Kui Jiang, Zhengguo Li
 
-![arXiv pending moderation](https://img.shields.io/badge/arXiv-pending%20moderation-b31b1b)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.13720-b31b1b.svg)](https://arxiv.org/abs/2610.13720)
 
-**arXiv:** The manuscript has been submitted and is awaiting moderation. The paper link and identifier will be added after announcement.
+**arXiv:** The paper is available on arXiv: [arXiv:2610.13720](https://arxiv.org/abs/2610.13720).
 
 [中文说明](README_zh-CN.md)
 
@@ -97,10 +97,24 @@ The command preserves image resolution, pads to a multiple of eight, crops the o
 
 ## Model complexity
 
-For a **1×3×256×256** input, THOP reports **15.23 M parameters** and **51.65 G operations**.
+For a **1×3×256×256** input, THOP reports **15.23 M parameters** and **51.65 G operations**. You can use tool to evaluate.
 
-## Citation and attribution
+## Citation and Attribution
 
-The supplied author order is recorded above. A formal BibTeX entry will be added when the publication year, venue and public paper identifier are confirmed.
+If you find IsoMamba useful in your research, please consider citing our paper:
 
-The project includes code derived from BasicSR and uses Mamba, PyTorch, timm and other dependencies. Third-party source provenance and licenses require review before release; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). A project license has not yet been selected.
+```bibtex
+@article{luo2026isomamba,
+  title={State-Isolated Vision Mamba via Update-Tendency Routing for Underwater Image Enhancement},
+  author={Luo, Yan and Chang, Laibin and Feng, Zefan and Chen, Yi'ang and Jiang, Kui and Li, Zhengguo},
+  journal={arXiv preprint arXiv:2610.13720},
+  year={2026},
+  url={https://arxiv.org/abs/2610.13720}
+}
+```
+
+### Acknowledgements
+
+This project builds upon [BasicSR](https://github.com/XPixelGroup/BasicSR) and utilizes Mamba, PyTorch, timm, and other open-source libraries. We thank the respective authors and contributors for making their work publicly available.
+
+For third-party dependencies and license information, please refer to [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
